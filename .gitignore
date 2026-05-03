@@ -1,0 +1,22 @@
+# Build folders
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Object files
+*.o
+*.obj
+
+# VS Code settings
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
