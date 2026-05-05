@@ -4,22 +4,20 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 class Dataset {
 private:
-    vector<vector<double>> features;
-    vector<double> labels;
+    std::vector<std::vector<double>> features;
+    std::vector<double> labels;
 
 public:
     // Load dataset from CSV file
-    bool loadCSV(const string& filename);
+    bool loadCSV(const std::string& filename);
 
     // Get features
-    const vector<vector<double>>& getFeatures() const;
+    const std::vector<std::vector<double>>& getFeatures() const;
 
     // Get labels
-    const vector<double>& getLabels() const;
+    const std::vector<double>& getLabels() const;
 
     // Print dataset info
     void printInfo() const;
