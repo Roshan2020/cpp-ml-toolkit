@@ -16,6 +16,7 @@ set(SOURCES
     src/Dataset.cpp
     src/LinearRegression.cpp
     src/LogisticRegression.cpp
+    src/DataSplitter.cpp
 )
 
 # Create executable
