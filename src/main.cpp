@@ -1,5 +1,6 @@
 #include "../include/Dataset.h"
 #include "../include/LinearRegression.h"
+#include "../include/LogisticRegression.h"
 
 #include <iostream>
 
@@ -25,6 +26,18 @@ int main() {
     );
 
     cout << "Final MSE: " << mse << endl;
+
+    // ---- Logistic Regression Test ----
+    LogisticRegression model1(0.1, 1000);
+
+    model1.train(dataset.getFeatures(), dataset.getLabels());
+
+    double acc = model1.computeAccuracy(
+        dataset.getFeatures(),
+        dataset.getLabels()
+    );
+
+    cout << "Final Accuracy: " << acc << endl;
 
     return 0;
 }
