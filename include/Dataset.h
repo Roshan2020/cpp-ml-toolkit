@@ -9,9 +9,16 @@ private:
     std::vector<std::vector<double>> features;
     std::vector<double> labels;
 
+    // Store min/max values for normalization
+    std::vector<double> featureMin;
+    std::vector<double> featureMax;
+
 public:
     // Load dataset from CSV file
     bool loadCSV(const std::string& filename);
+
+    // Normalize feature values
+    void normalizeFeatures();
 
     // Get features
     const std::vector<std::vector<double>>& getFeatures() const;
