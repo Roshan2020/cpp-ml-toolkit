@@ -24,12 +24,15 @@ The primary goal is to understand the mathematical foundations and algorithmic i
 
 ## ⚙️ Features
 - ✅ Linear Regression using Gradient Descent  
-- ✅ Logistic Regression for Classification  
+- ✅ Logistic Regression for Binary Classification  
 - ✅ CSV Dataset Loader and Preprocessing  
+- ✅ Feature Normalization (Min-Max Scaling)  
+- ✅ Train/Test Dataset Splitting  
 - ✅ Model Evaluation Metrics:
   - Mean Squared Error (MSE)
   - Accuracy  
-- ✅ Command-Line Interface (CLI)  
+- ✅ Interactive Command-Line Interface (CLI)  
+- ✅ Modular Object-Oriented Design   
 
 ---
 
@@ -38,20 +41,23 @@ The primary goal is to understand the mathematical foundations and algorithmic i
 ```text
 cpp-ml-toolkit/
 │
-├── data/                  # Input datasets (CSV format)
-├── include/               # Header files
+├── data/                      # Input datasets (CSV format)
+├── docs/                      # Project report / screenshots
+│
+├── include/                   # Header files
 │   ├── Model.h
+│   ├── Dataset.h
 │   ├── LinearRegression.h
 │   ├── LogisticRegression.h
-│   └── Dataset.h
+│   └── DataSplitter.h
 │
-├── src/                   # Source files
+├── src/                       # Source files
+│   ├── main.cpp
+│   ├── Dataset.cpp
 │   ├── LinearRegression.cpp
 │   ├── LogisticRegression.cpp
-│   ├── Dataset.cpp
-│   └── main.cpp
+│   └── DataSplitter.cpp
 │
-├── docs/                  # Report & screenshots
 ├── README.md
 ├── CMakeLists.txt
 └── .gitignore
@@ -66,6 +72,10 @@ cpp-ml-toolkit/
   - `std::string`
   - `std::accumulate`
   - `std::transform`
+- Algorithms:
+  - `std::min`
+  - `std::max`
+  - Gradient Descent Optimization
 - File I/O (CSV parsing)
 - Object-Oriented Programming:
   - Encapsulation
@@ -85,6 +95,20 @@ cpp-ml-toolkit/
 - Used for binary classification
 - Applies **Sigmoid function**
 - Evaluated using **Accuracy**
+
+---
+
+## 🔄 Machine Learning Workflow
+
+The toolkit follows a simplified machine learning pipeline:
+
+1. Load dataset from CSV file  
+2. Normalize feature values using Min-Max Scaling  
+3. Split dataset into training and testing sets  
+4. Train model using Gradient Descent  
+5. Evaluate model performance using standard metrics  
+
+This workflow mimics real-world machine learning preprocessing and evaluation practices.
 
 ---
 
@@ -110,11 +134,25 @@ make
 ---
 
 ## 📊 Example Workflow
-1. Load dataset from CSV file  
-2. Initialize model (Linear / Logistic Regression)  
-3. Train model using Gradient Descent  
-4. Evaluate performance (MSE / Accuracy)  
-5. Output results to console  
+
+### Example CLI Usage
+
+```text
+===== Machine Learning Toolkit =====
+
+1. Load Dataset
+2. Normalize Features
+3. Train Linear Regression
+4. Train Logistic Regression
+5. Exit
+```
+
+### Typical Execution Steps
+1. Load dataset  
+2. Normalize features  
+3. Select regression model  
+4. Train model  
+5. Evaluate performance on test data  
 
 ---
 
@@ -132,11 +170,23 @@ Accuracy: 92%
 ---
 
 ## 🔮 Future Improvements
-- Regularization (L1 / L2)
-- Polynomial Regression
-- Feature Scaling / Normalization
-- Multi-class Classification
-- Visualization tools (graphs)
+- Randomized dataset shuffling
+- Model saving/loading
+- Polynomial regression
+- Multi-class classification
+- Standardization (Z-score normalization)
+- Data visualization support
+
+---
+
+## 📚 Key Learning Outcomes
+This project demonstrates:
+- Implementation of machine learning algorithms from scratch
+- Use of object-oriented programming in C++
+- Numerical optimization using Gradient Descent
+- Dataset preprocessing and normalization
+- Model evaluation using train/test splitting
+- Modular software architecture design
 
 ---
 
