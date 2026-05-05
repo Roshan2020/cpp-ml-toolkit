@@ -14,6 +14,8 @@ int main() {
         return 1;
     }
 
+    dataset.normalizeFeatures();
+
     dataset.printInfo();
 
     LinearRegression model(0.01, 1000);
