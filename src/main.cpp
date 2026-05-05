@@ -1,8 +1,15 @@
+#include "../include/Dataset.h"
+
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::cout << "Machine Learning Toolkit in C++" << std::endl;
-    std::cout << "Project initialized successfully!" << std::endl;
+    Dataset dataset;
+
+    if (dataset.loadCSV("../data/sample.csv")) {
+        dataset.printInfo();
+    }
 
     return 0;
 }
