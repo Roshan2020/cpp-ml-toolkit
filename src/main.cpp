@@ -1,6 +1,7 @@
 #include "../include/Dataset.h"
 #include "../include/LinearRegression.h"
 #include "../include/LogisticRegression.h"
+#include "../include/DataSplitter.h"
 
 #include <iostream>
 
@@ -69,20 +70,26 @@ int main() {
                 break;
             }
 
+            vector<vector<double>> X_train, X_test;
+            vector<double> y_train, y_test;
+
+            DataSplitter::trainTestSplit(
+                dataset.getFeatures(),
+                dataset.getLabels(),
+                X_train,
+                X_test,
+                y_train,
+                y_test
+            );
+
             LinearRegression model(0.01, 1000);
 
-            model.train(
-                dataset.getFeatures(),
-                dataset.getLabels()
-            );
+            model.train(X_train, y_train);
 
-            double mse = model.computeMSE(
-                dataset.getFeatures(),
-                dataset.getLabels()
-            );
+            double mse = model.computeMSE(X_test, y_test);
 
             cout << "Linear Regression Training Complete!" << endl;
-            cout << "Final MSE: " << mse << endl;
+            cout << "Test MSE: " << mse << endl;
 
             break;
         }
@@ -94,20 +101,30 @@ int main() {
                 break;
             }
 
-            LogisticRegression model(0.1, 1000);
+            vector<vector<double>> X_train, X_test;
+            vector<double> y_train, y_test;
 
-            model.train(
+            DataSplitter::trainTestSplit(
                 dataset.getFeatures(),
-                dataset.getLabels()
+                dataset.getLabels(),
+                X_train,
+                X_test,
+                y_train,
+                y_test
             );
 
+            LogisticRegression model(0.1, 1000);
+
+            model.train(X_train, y_train);
+
             double accuracy = model.computeAccuracy(
-                dataset.getFeatures(),
-                dataset.getLabels()
+                X_test,
+                y_test
             );
 
             cout << "Logistic Regression Training Complete!" << endl;
-            cout << "Accuracy: "
+
+            cout << "Test Accuracy: "
                  << accuracy * 100
                  << "%" << endl;
 
