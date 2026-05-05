@@ -14,6 +14,7 @@ include_directories(include)
 set(SOURCES
     src/main.cpp
     src/Dataset.cpp
+    src/LinearRegression.cpp
 )
 
 # Create executable
